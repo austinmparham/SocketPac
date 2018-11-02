@@ -13,6 +13,8 @@
                 console.log(data.msg); //5
                 socket.emit('thankyou', { msg: 'Thank you for connecting me! -Client' }); //6
             });
+
+            socket.emit('new_player', score)
         })
     </script>
     <script src="main.js"></script>
