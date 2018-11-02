@@ -1,0 +1,31 @@
+ <html>
+<head>
+    <title>NinjaMan</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript">
+        $(document).ready(function(){
+            drawWorld();
+            var socket = io(); //1
+    
+            socket.on('greeting', function (data) { //4
+                console.log(data.msg); //5
+                socket.emit('thankyou', { msg: 'Thank you for connecting me! -Client' }); //6
+            });
+        })
+    </script>
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id='world'></div>
+    <div id="scoreboard">
+        <div id= 'score'></div>
+        <div id= 'lives'></div>
+        <div id= 'gameover'></div>
+    </div>
+    <div id= 'ninjaman'></div>
+    <div id= 'pumpkins'></div>
+</body>
+<script src="main.js"></script>
+</html>
